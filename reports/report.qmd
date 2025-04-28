@@ -41,17 +41,11 @@ where
 
 ```{python}
 #| echo: false
-# Drop your personal copy if it already exists
+# Make full copy of wdi_country (no filtering yet!)
 execute_ddl(cnx, """
 DROP TABLE IF EXISTS wdi_country;
-""")
-
-# Create your personal clean copy
-execute_ddl(cnx, """
 CREATE TABLE wdi_country AS
-SELECT *
-FROM world_bank_data.wdi_country
-WHERE NOT Region IS NULL;
+SELECT * FROM world_bank_data.wdi_country;
 """)
 ```
 
@@ -220,8 +214,6 @@ run_sql_and_return_html(cnx,"""
 SELECT Region, `Short Name`
 FROM wdi_country
 WHERE Region = 'North America'
-UNION ALL
-SELECT 'North America', 'The Bermudas'
 ORDER BY `Short Name`;
 """)
 
