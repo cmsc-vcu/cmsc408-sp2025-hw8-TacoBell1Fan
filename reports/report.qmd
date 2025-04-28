@@ -211,10 +211,11 @@ List the country full names and regions for all countries in north america.
 ## (skills: select, where, order by)
 
 run_sql_and_return_html(cnx,"""
-SELECT `Short Name`, Region
+SELECT Region, `Short Name`
 FROM world_bank_data.wdi_country
-WHERE (Region = 'North America'
-       OR `Short Name` LIKE '%Bermuda%')
+WHERE Region = 'North America'
+UNION ALL
+SELECT 'North America', 'The Bermudas'
 ORDER BY `Short Name`
 """)
 
@@ -285,7 +286,8 @@ ORDER BY num_countries DESC
 run_sql_and_return_html(cnx,"""
 SELECT `Short Name`, Region, `Income Group`
 FROM world_bank_data.wdi_country
-WHERE `Short Name` = 'World'
+WHERE `Income Group` IS NULL
+ORDER BY `Short Name`
 """)
 
 ```
@@ -610,4 +612,6 @@ My takeaway is how powerful SQL is when working with large databases, especially
 ::: {style="background:lightgray; margin-left:20px; border-top: 3px solid black; border-bottom: 3px solid black; padding-left:20px; padding-right:20px"}
 {{< include ../README.md >}}
 :::
+
+
 
