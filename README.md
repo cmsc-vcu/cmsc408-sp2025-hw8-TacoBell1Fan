@@ -1,10 +1,34 @@
-# cmsc408-sp2025-hw8
+# Homework 8 - World Bank Analysis
 
-Homework 8 - World Bank Indicator Analysis
+##  Project Overview
 
-(this is a scaffold.  Please clean it up.)
+This project explores and analyzes real-world country and economic data from the World Bank. The primary goal was to develop skills using SQL data exploration, transformation, and reporting for large real-world datasets.
 
-(Remember, someday you'll look back at this repo and wonder what you were thinking!
-Now is your chance to remind your future self what you were thinking!)
+---
 
+##  Technologies
+
+- **SQL**
+- **Python** 
+- **Quarto** 
+- **MySQL Connector (PyMySQL)** 
+
+---
+
+##  Files
+
+`report.qmd` 
+`README.md` 
+`.env` 
+`helpers.py`
+
+
+---
+
+##  How to Run
+
+1. Clone repository
+2. Set up a `.env` file with database credentials
+3. Open the `reports/` folder.
+4. Run quarto render report.qmd
 
